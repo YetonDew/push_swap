@@ -6,11 +6,11 @@
 /*   By: ajeffers <ajeffers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:09:54 by ajeffers          #+#    #+#             */
-/*   Updated: 2025/10/13 15:38:38 by ajeffers         ###   ########.fr       */
+/*   Updated: 2026/02/16 13:10:40 by ajeffers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static size_t	count_words(char const *s, char c)
 {
