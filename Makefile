@@ -6,38 +6,46 @@
 #    By: ajeffers <ajeffers@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/09 17:57:58 by ajeffers          #+#    #+#              #
-#    Updated: 2026/02/09 17:59:23 by ajeffers         ###   ########.fr        #
+#    Updated: 2026/02/16 13:11:18 by ajeffers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-RM = rm -fr
+RM = rm -f
+NAME = push_swap
 
-SRC = ft_print_char.c \
-ft_print_str.c \
-ft_print_nbr.c \
-ft_print_ptr.c \
-ft_print_unsig.c \
-ft_print_hex.c \
-ft_itoa.c \
-ft_print_percent.c \
-ft_printf.c
+SRC = push_swap.c \
+	  stack_utils.c \
+	  init.c \
+	  init_nodes.c \
+	  sort_stack.c \
+	  sort_small.c \
+	  utils.c \
+	  swaps.c \
+	  push.c \
+	  rotations.c \
+	  rrotations.c \
+	  ft_split.c \
+	  ft_strlen.c \
+	  ft_substr.c \
+	  ft_strlcpy.c
 
-OSRC = $(SRC:.c=.o)
-TARGET = libftprintf.a
+OBJ = $(SRC:.c=.o)
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OSRC)
-		$(AR) $(TARGET) $(OSRC)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.c push_swap.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-		rm -f $(OSRC)
+	$(RM) $(OBJ)
 
 fclean: clean
-		rm -f $(TARGET)
+	$(RM) $(NAME)
 
 re: fclean all
 
